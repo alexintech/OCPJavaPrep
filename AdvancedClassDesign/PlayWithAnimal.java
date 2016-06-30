@@ -6,6 +6,7 @@ abstract class Animal {
 }
 
 class Lion extends Animal {
+  // @Override    // error: annotation type not applicable to this kind of declaration
   String name = "Leo";
 }
 
