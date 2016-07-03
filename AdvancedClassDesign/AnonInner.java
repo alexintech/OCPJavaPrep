@@ -4,6 +4,12 @@ public class AnonInner {
     static final int a = 5;   // static final constants are allowed
                               // in inner classes
   }
+
+  public interface SaleToday {
+    public static int sale() { return 5; } // static methods are allowed in
+        // inner interfaces
+  }
+
   public int admission(int basePrice) {
     SaleTodayOnly sale = new SaleTodayOnly() {
       int dollarsOff() { return basePrice/4 - 3; } // you can use final or
