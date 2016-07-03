@@ -1,6 +1,8 @@
 public class AnonInner {
   abstract class SaleTodayOnly {
     abstract int dollarsOff();
+    static final int a = 5;   // static final constants are allowed
+                              // in inner classes
   }
   public int admission(int basePrice) {
     SaleTodayOnly sale = new SaleTodayOnly() {
