@@ -16,3 +16,4 @@ enum Level {
 
 //! class LevelEx extends Enum { }  // error: classes cannot directly
                                     // extend java.lang.Enum
+enum EmptyEnum { }
