@@ -22,9 +22,9 @@ public class FinalConditionalInit {
     finalVar3 = 100;
     /*
     if (a > b)
-      finalVar1 = 20;   // error: variable finalVar1 might already have been assigned
+      finalVar3 = 20;   // error: variable finalVar1 might already have been assigned
     else if (b >= a)
-      finalVar1 = 30;   // error: variable finalVar1 might already have been assigned
+      finalVar3 = 30;   // error: variable finalVar1 might already have been assigned
     */
   }
   public static void main(String[] args) {
