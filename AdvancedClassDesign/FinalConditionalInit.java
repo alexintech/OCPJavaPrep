@@ -3,7 +3,7 @@ public class FinalConditionalInit {
   final int finalVar2;
   final int finalVar3;
   FinalConditionalInit(double a, double b) {
-    /*
+    /*!
     if (a > b)
       finalVar1 = 20;
     else if (b >= a)
@@ -20,7 +20,7 @@ public class FinalConditionalInit {
       finalVar2 = 20;   // OK
 
     finalVar3 = 100;
-    /*
+    /*!
     if (a > b)
       finalVar3 = 20;   // error: variable finalVar1 might already have been assigned
     else if (b >= a)
@@ -32,3 +32,4 @@ public class FinalConditionalInit {
   }
 }
 
+//! class final ClassBeforeFinalWontCompile { } // error: <identifier> expected
