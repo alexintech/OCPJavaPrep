@@ -34,3 +34,17 @@ public interface AnnotationTest3 {
   int bar();
 }
 */
+
+@FunctionalInterface
+interface AnnotationTest4 {
+  int foo();
+  boolean equals(Object obj);  // OK. It's still a functional interface
+}
+
+// error: no abstract method found in interface AnnotationTest5
+/*!
+@FunctionalInterface
+interface AnnotationTest5 {
+  boolean equals(Object obj);  // no abstract method
+}
+*/
