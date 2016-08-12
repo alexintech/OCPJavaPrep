@@ -52,3 +52,10 @@ class VisitorTracker {
     return instance;
   }
 }
+
+enum Singleton {
+  INSTANCE;
+
+  public void initCache() {
+  }
+}
