@@ -17,6 +17,12 @@ public class QueueUsage {
     System.out.println(stack.poll());     // 4
     System.out.println(stack.poll());     // 10
     System.out.println(stack.peek());     // null
+
+    Queue<Integer> q = new LinkedList<>();
+    q.add(10);
+    q.add(12);
+    q.remove(1);    // remove(Object o)
+    System.out.println(q);  // [10, 12]
   }
 }
 
