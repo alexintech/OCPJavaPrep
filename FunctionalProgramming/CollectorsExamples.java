@@ -11,6 +11,7 @@ public class CollectorsExamples {
     Double result2 = animals.collect(Collectors.averagingInt(String::length));
     System.out.println(result2);     // 5.33333333333333
 
+    // ------- toMap() -------
     Stream<String> animals2 = Stream.of("lions", "tigers", "bears");
     Map<String, Integer> map1 = animals2.collect(
         Collectors.toMap(s -> s, String::length));
@@ -31,6 +32,37 @@ public class CollectorsExamples {
           TreeMap::new));
     System.out.println(map3);   // {5=lions,bears, 6=tigers}
     System.out.println(map3.getClass());    // class java.util.TreeMap
+
+    // --------- groupingBy() --------
+    List<String> anim = Arrays.asList("lions", "tigers", "bears");
+    Map<Integer, List<String>> grouped = anim.stream().collect(
+        Collectors.groupingBy(String::length));
+    System.out.println(grouped);   // {5=[lions, bears], 6=[tigers]}
+
+    Map<Integer, Set<String>> grouped2 = anim.stream().collect(
+        Collectors.groupingBy(String::length, Collectors.toSet()));
+    System.out.println(grouped2);   // {5=[lions, bears], 6=[tigers]}
+
+    TreeMap<Integer, Set<String>> grouped3 = anim.stream().collect(
+        Collectors.groupingBy(String::length, TreeMap::new, Collectors.toSet()));
+    System.out.println(grouped2);   // {5=[lions, bears], 6=[tigers]}
+
+    // --------- paritioningBy() -----
+    Map<Boolean, List<String>> part1 = anim.stream().collect(
+        Collectors.partitioningBy(s -> s.length() <= 5));
+    System.out.println(part1);      // {false=[tigers], true=[lions, bears]}
+
+    Map<Boolean, Set<String>> part2 = anim.stream().collect(
+        Collectors.partitioningBy(s -> s.length() <= 7, Collectors.toSet()));
+    System.out.println(part2);      // {false=[], true=[lions, tigers, bears]}
+
+    // --------- mapping() ----------
+    Map<Integer, Optional<Character>> res = anim.stream().collect(
+        Collectors.groupingBy(
+          String::length,
+          Collectors.mapping(s -> s.charAt(0),
+            Collectors.minBy(Comparator.<Character>naturalOrder()))));
+    System.out.println(res);   // {5=Optional[b], 6=Optional[t]}
   }
 }
 
