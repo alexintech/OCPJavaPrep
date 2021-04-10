@@ -37,6 +37,8 @@ public class InnerClass {
     //! Inner in = outer.new Inner();   // error: cannot find symbol
     Outer.Inner inner = outer.new Inner(); // you need to create Outer object
                                            // to create Inner object
+                                           //
+    Outer.Inner inner2 = new Outer().new Inner();
     inner.go();   // prints "Hi" three times
 
     Outer a = new Outer();
